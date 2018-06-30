@@ -14,7 +14,6 @@ import javax.sound.sampled.*;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 
 public class Controller implements LineListener {
@@ -23,13 +22,13 @@ public class Controller implements LineListener {
     Stage stage = null;
     @FXML
 
-    ListView<Mixer.Info> fruitCombo;
+    ListView<Mixer.Info> devices;
 
     @FXML
     ListView<File> soundfile;
 
     @FXML
-    public ListView playlist;
+    public ListView<ClipHolder> playlist;
 
     @FXML
     TextArea status;
@@ -47,14 +46,14 @@ public class Controller implements LineListener {
             if (filtered) {
                 try {
                     Clip clip=AudioSystem.getClip(i);
-                } catch (LineUnavailableException e) {
+                } catch (LineUnavailableException | RuntimeException e) {
                     continue;
                 }
             }
 
             list.add(i);
         }
-        fruitCombo.setItems(list);
+        devices.setItems(list);
         File f = new File("Sounds");
         File[] flist = f.listFiles(new FilenameFilter() {
             @Override
@@ -70,7 +69,7 @@ public class Controller implements LineListener {
 
     @FXML
     public void onPlay(ActionEvent actionEvent) {
-        Mixer.Info info = fruitCombo.getSelectionModel().getSelectedItem();
+        Mixer.Info info = devices.getSelectionModel().getSelectedItem();
         File f = soundfile.getSelectionModel().getSelectedItem();
         if (info == null) {
             addln("No device selected.");
@@ -93,6 +92,13 @@ public class Controller implements LineListener {
                 clips.add(new ClipHolder(f.toString(),clip));
                 clip.addLineListener(this);
             }
+            Mixer m = AudioSystem.getMixer(info);
+            Line.Info[] li = m.getTargetLineInfo();
+            for (Line.Info inf : li) {
+                addln(li);
+            }
+            FloatControl vol = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+            addln("Volume="+vol);
         } catch (LineUnavailableException e) {
             addln(e.getMessage());
         } catch (UnsupportedAudioFileException e) {

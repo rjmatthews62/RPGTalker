@@ -15,7 +15,7 @@ public class Main extends Application {
         Parent root = loader.load();
         primaryStage.setTitle("RPG Talker");
         primaryStage.setScene(new Scene(root, 800, 500));
-        Controller mycontroller = (Controller) loader.getController();
+        Controller mycontroller = loader.getController();
         mycontroller.stage=primaryStage;
         primaryStage.show();
     }
