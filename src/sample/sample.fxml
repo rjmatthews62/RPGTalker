@@ -10,7 +10,7 @@
     <Label text="Sounds" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
     <Label text="Playing" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
     <ListView fx:id="devices" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-    <ListView fx:id="soundfile" GridPane.columnIndex="1" GridPane.rowIndex="3"></ListView>
+    <ListView fx:id="soundfile" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
     <ListView fx:id="playlist" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
     <TextArea fx:id="status" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="4"/>
 </GridPane>
