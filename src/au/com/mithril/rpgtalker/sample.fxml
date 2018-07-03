@@ -1,6 +1,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<GridPane fx:controller="sample.Controller"
+<GridPane fx:controller="au.com.mithril.rpgtalker.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="4" vgap="4">
     <Button text="Populate" onAction="#onPopulate" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
     <Button text="Play" onAction="#onPlay" GridPane.columnIndex="1" GridPane.rowIndex="0"/>

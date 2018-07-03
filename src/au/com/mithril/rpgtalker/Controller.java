@@ -1,10 +1,11 @@
-package sample;
+package au.com.mithril.rpgtalker;
 
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
@@ -14,11 +15,15 @@ import javax.sound.sampled.*;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ConcurrentModificationException;
+import java.util.Properties;
+import java.util.ResourceBundle;
 
-public class Controller implements LineListener {
+public class Controller implements LineListener,Initializable {
 
     public CheckBox filter;
+    public RobProperties config;
     Stage stage = null;
     @FXML
 
@@ -167,6 +172,14 @@ public class Controller implements LineListener {
     public void onFilter(ActionEvent actionEvent) {
         addln("Filtering.");
         onPopulate(actionEvent);
+        config.writeBoolean("main.filtered",filter.isSelected());
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        config=Main.config;
+        filter.setSelected(config.readBoolean("main.filtered",false));
+        onPopulate(null);
     }
 
     class ClipHolder {
