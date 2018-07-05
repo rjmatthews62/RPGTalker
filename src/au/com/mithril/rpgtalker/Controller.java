@@ -128,12 +128,7 @@ public class Controller implements LineListener,Initializable {
         if (Platform.isFxApplicationThread()) {
             status.appendText(msg.toString() + "\n");
         } else {
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    addln(msg);
-                }
-            });
+            Platform.runLater(() -> addln(msg));
         }
     }
 

@@ -1,24 +1,37 @@
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<GridPane fx:controller="au.com.mithril.rpgtalker.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="4" vgap="4">
-    <Button text="Populate" onAction="#onPopulate" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-    <Button text="Play" onAction="#onPlay" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-    <Button text="Stop" onAction="#onStop" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
-    <CheckBox fx:id="filter" text="Filter" onAction="#onFilter" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-    <Label text="Devices" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-    <Label text="Sounds" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-    <Label text="Playing" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
-    <ListView fx:id="devices" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-    <ListView fx:id="soundfile" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-    <ListView fx:id="playlist" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
-    <TextArea fx:id="status" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="4"/>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="center" hgap="4" vgap="4" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.121" fx:controller="au.com.mithril.rpgtalker.Controller">
+    <Button onAction="#onPopulate" text="Populate" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+    <Button onAction="#onPlay" text="Play" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+    <Button onAction="#onStop" text="Stop" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+    <CheckBox fx:id="filter" onAction="#onFilter" text="Filter" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+    <Label text="Devices" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+    <Label text="Sounds" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    <Label text="Playing" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+    <ListView fx:id="devices" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+    <ListView fx:id="soundfile" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+    <ListView fx:id="playlist" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+    <TextArea fx:id="status" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.rowIndex="4" />
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
 </GridPane>
-
-
-
-
-
-
-
-
